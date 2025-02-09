@@ -86,22 +86,23 @@ const galleryList = document.querySelector(".js-gallery");
 galleryList.innerHTML = galleryElements;
 
 const lightbox = document.querySelector(".js-lightbox");
-const overlay = document.querySelector(".lightbox__overlay");
+const modalOverlay = document.querySelector(".lightbox__overlay");
 const closeModal = document.querySelector(`[data-action="close-lightbox"]`);
 const img = document.querySelector(".lightbox__image");
 
-
 galleryList.addEventListener("click", (event) => {
-  if (event.target === galleryList) {
+  if (event.target.nodeName === galleryList) {
     return;
   }
-  img.src = event.target.dataset.source;
-  img.alt = event.target.alt;
+  const galleryItem = event.target.closest(".gallery__item");
+  const imgInfo = galleryItem.firstElementChild.firstElementChild;
+  img.src = imgInfo.dataset.source;
+  img.alt = imgInfo.alt;
   lightbox.classList.add("is-open");
 });
 
 closeModal.addEventListener("click", removeLightbox);
-overlay.addEventListener("click", removeLightbox);
+modalOverlay.addEventListener("click", removeLightbox);
 function removeLightbox() {
   lightbox.classList.remove("is-open");
   img.src = "";

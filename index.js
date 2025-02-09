@@ -96,7 +96,7 @@ galleryList.addEventListener("click", (event) => {
   }
   const galleryItem = event.target.closest(".gallery__item");
   const imgInfo = galleryItem.firstElementChild.firstElementChild;
-  img.src = imgInfo.dataset.source;
+  img.src = imgInfo.src;
   img.alt = imgInfo.alt;
   lightbox.classList.add("is-open");
 });

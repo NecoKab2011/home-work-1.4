@@ -112,8 +112,8 @@
   
   .lightbox__button {
     position: absolute;
-    top: 160px;
-    right: 450px;
+    top: 60px;
+    right: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
